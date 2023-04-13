@@ -51,7 +51,7 @@ export class BabyName {
   private generate(): NameObject[] {
     const { source, surname, allowGeneral, minStrokeCount, maxStrokeCount, dislikeWords, count, singleNameWeight, gender } = this.config;
     const goodStrokeList = getGoodStrokeList(surname, allowGeneral);
-    const names = NameGenerator.batch({
+    const names = new NameGenerator({
       surname,
       source,
       goodStrokeList,
@@ -62,6 +62,6 @@ export class BabyName {
       gender,
     }, count);
 
-    return names;
+    return names.oldBatch();
   }
 }

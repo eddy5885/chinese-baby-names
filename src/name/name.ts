@@ -1,4 +1,4 @@
-import { traditionalToSimplified } from "src/utils/opencc";
+import { traditionalToSimplified } from "../utils/opencc";
 import { Gender } from "../enums/Gender";
 
 export interface NameObject {

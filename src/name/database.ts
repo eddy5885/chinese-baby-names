@@ -10,7 +10,7 @@ import { shuffle } from '../utils/shuffle';
  * @param name
  */
 export function readLocalData(name: string): string[] {
-  const resourcePath = path.join(__dirname, 'database', name);
+  const resourcePath = path.join(__dirname, '../database', name);
 
   if (fs.statSync(resourcePath).isDirectory()) {
     return [];
@@ -25,7 +25,8 @@ export function readLocalData(name: string): string[] {
 }
 
 export function readLocalJsonData(name: string): string[] {
-  const resourcePath = path.join(__dirname, 'database', name);
+  const resourcePath = path.join(__dirname, '../database', name);
+  console.log('resourcePath:',resourcePath)
 
   if (fs.statSync(resourcePath).isDirectory()) {
     return [];
@@ -134,7 +135,7 @@ export class Database {
   public static aiNames: AINameData[] = Database.generateAINamesDirectory();
 
   public static getJsonData<T>({ locate, getSentences, getTitle, callback }: GetJsonDataParams<T>): void {
-    const data = require(`./database/${locate}.json`);
+    const data = require(`../database/${locate}.json`);
     for (const item of shuffle<T>(data))  {
       const sentences = getSentences(item);
       const title = getTitle(item);

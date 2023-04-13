@@ -5,7 +5,7 @@ import { Database, DatabaseStorages, PoetCounter } from './database';
 import { getStrokeNumber } from '../stroke/stroke';
 import { numSequenceRandoms } from '../utils/numSequenceRandoms';
 import { Gender } from '../enums/Gender';
-import { shuffle } from 'src/utils/shuffle';
+import { shuffle } from '../utils/shuffle';
 import { ChuciData, LunyuData, PoetAndCiData } from './types';
 
 interface GeneratorConfig {
@@ -39,7 +39,7 @@ export class NameGenerator {
     return instance.batch();
   }
 
-  private constructor(config: GeneratorConfig, count?: number) {
+  public constructor(config: GeneratorConfig, count?: number) {
     this.config = config;
     this.count = count;
     this.names = [];

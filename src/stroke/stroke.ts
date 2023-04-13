@@ -2,7 +2,7 @@ import { checkSancaiGood } from '../wuxing/sancai';
 import { simplifiedToTraditional } from '../utils/opencc';
 import { Database } from '../name/database';
 import { FATE_COUNT, STROKE_BADS, STROKE_GENERALS, STROKE_GOODS } from './constant';
-import { calcWuge } from 'src/wuxing/wuge';
+import { calcWuge } from '../wuxing/wuge';
 
 const NumStrokeNumber: Record<string, number> = {
   一: 1,
@@ -100,7 +100,7 @@ export function getStrokeType(stroke: number): string {
   } else if (STROKE_GENERALS.includes(stroke)) {
     return '中吉';
   } else if (STROKE_BADS.includes(stroke)) {
-    return '凶';
+    return '小吉';
   } else {
     return '';
   }
